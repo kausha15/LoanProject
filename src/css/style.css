@@ -1,0 +1,11 @@
+.vertical-center {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    -webkit-justify-content: center; /* For Safari */
+    -webkit-align-items: center; /* For Safari */
+}
+
+.square-box{
+    padding: 5%;background-color: #1b6d85;color: #fff;margin: 2%;width: 60%;text-align: center
+}
