@@ -7,61 +7,137 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<nav class="navbar">
-    <div class="center-block head">
-        LOAN SYSTEM
+<body style="background-color: #e9e9e9">
+<nav class="navbar" style="padding: 1%;background-color: #fff;">
+    <img src="img/retail-lending-logo.png" style="max-height: 50px;">
+    <div class="head pull-right">
     </div>
 </nav>
-<div class="container">
-    <div class="vertical-center">
-        <div class="row row-centered">
-            <div class="col-md-6">
-                <div class="pull-right square-box" style="background-color: #DADDEC">
-                    <div style="background-color: #8089C0;margin: -10% -10% 0% -10%;color: #fff">
-                            Personal Details
+<div role="main">
+<div class="container container-width">
+    <div class="vertical-center" >
+        <div class="row row-centered margin5">
+            <div class="col-xs-6">
+                <div id="personalDiv">
+                    <div id="personalHeader" class="padding5">Personal Details</div>
+                    <div class="padding10" ng-click="showForm(1)">
+                        <span class="padding5 personalDetail">Add Details</span>
                     </div>
-                    <span style="color: #F6F6F6;background-color: #fff;" >
-                        Add Details
-                    </span>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="pull-left square-box" style="background-color: #EAE7D6">
-                    <div style="background-color: #CAB95E;margin: -10% -10% 0% -10%;color: #fff">
-                        Property Details
+            <div class="col-xs-6">
+                <div id="propertyDiv">
+                    <div id="propertyHeader" class="padding5">Property Details</div>
+                    <div class="padding10" ng-click="showForm(2)">
+                        <span class="propertyDetail padding5">Add Details</span>
                     </div>
-                    <span style="color: #F6F6F6;background-color: #fff;">
-                        Add Details
-                    </span>
                 </div>
             </div>
-
         </div>
-        <div class="row row-centered">
-            <div class="col-md-6">
-                <div class="pull-right square-box" style="background-color: #DBE1D3">
-                    <div style="background-color: #85A043;margin: -10% -10% 0% -10%;color: #fff">
-                        Work Details
+        <div class="row row-centered margin5">
+            <div class="col-xs-6">
+                <div id="workDiv">
+                    <div id="workHeader" class="padding5">Work Details</div>
+                    <div class="padding10" ng-click="showForm(3)">
+                        <span class="padding5 workDetail">Add Details</span>
                     </div>
-                    <span style="color: #F6F6F6;background-color: #fff;">
-                        Add Details
-                    </span>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="pull-left square-box" style="background-color: #E5E1EF">
-                    <div style="background-color:#B499C6;margin: -10% -10% 0% -10%;color: #fff">
-                        Other Details
+            <div class="col-xs-6">
+                <div id="otherDiv">
+                    <div id="otherHeader" class="padding5">Other Details</div>
+                    <div class="padding10" ng-click="showForm(4)">
+                        <span class="padding5 otherDetail">Add Details</span>
                     </div>
-                    <span style="color: #F6F6F6;background-color: #fff;">
-                        Add Details
-                    </span>
                 </div>
             </div>
-
         </div>
     </div>
+    <div id="form" class="pull-right" style="background-color: #fff;color: #000;padding: 2%;display: none;">
+        <form name="loanForm" ng-submit="formValidate(loanForm,$event)">
+            <div style="background-color: #777777;width: 100%;padding: 5%;text-align: center">
+                <span>
+                    {{user.title}}
+                </span>
+            </div>
+            <div class="padding5" style="background-color: aqua;margin: 3% 0% 3% 0%;">
+                <span >
+                    <table>
+                        <tr>
+                            <td>Name : </td>
+                            <td><input type="text" ng-model="user.name" id="name" ng-value="user.name"
+                                       placeholder="Your Name" name="name" validator="required"
+                                       required-error-message="Required"></td>
+                        </tr>
+                        <tr>
+                            <td>Number : </td>
+                            <td><input type="number" ng-model="user.number" id="number" ng-value="user.number"
+                                       placeholder="Contact Number" name="number" validator="required"
+                                       required-error-message="Required"></td>
+                        </tr>
+                        <tr>
+                            <td>Email : </td>
+                            <td><input type="email" ng-model="user.email" id="email" ng-value="user.email"
+                                       placeholder="Email Address" name="email" validator="required"
+                                       required-error-message="Required"></td>
+                        </tr>
+                    </table>
+                </span>
+            </div>
+            <div class="padding5" style="background-color: aqua;margin: 3% 0% 3% 0%;">
+                <span>
+                    <table>
+                        <tr>
+                            <td>Amount : </td>
+                            <td><input type="number" ng-model="user.amount" id="amount" ng-value="user.amount"
+                                       placeholder="Loan Amount" name="amount" validator="required"
+                                       required-error-message="Required" ng-change="calculate();"></td>
+                        </tr>
+                        <tr>
+                            <td>Interest Rate : </td>
+                            <td><input type="number" ng-model="user.interest" id="interest" ng-value="user.interest"
+                                       placeholder="Interest Rate" name="interest" validator="required"
+                                       required-error-message="Required" ng-change="calculate();"></td>
+                        </tr>
+                        <tr>
+                            <td>Duration : </td>
+                            <td><input type="number" ng-model="user.years" id="years" ng-value="user.years"
+                                       placeholder="Duration in years" name="years" validator="required"
+                                       required-error-message="Required" ng-change="calculate();"></td>
+                        </tr>
+                    </table>
+                </span>
+            </div>
+            <div class="padding5" style="background-color: aqua;margin: 3% 0% 3% 0%;">
+                <span>
+                    <table>
+                        <tr>
+                            <td>Monthly Payment : </td>
+                            <td><input type="number" ng-model="user.month_payment" id="month_payment" ng-value="user.month_payment"
+                                       placeholder="Monthly Payment" name="month_payment" validator="required"
+                                       required-error-message="Required"></td>
+                        </tr>
+                        <tr>
+                            <td>Total Payment : </td>
+                            <td><input type="number" ng-model="user.total_payment" id="total_payment" ng-value="user.total_payment"
+                                       placeholder="Total Payment" name="total_payment" validator="required"
+                                       required-error-message="Required"></td>
+                        </tr>
+                        <tr>
+                            <td>Total Interest : </td>
+                            <td><input type="number" ng-model="user.total_interest" id="total_interest" ng-value="user.total_interest"
+                                       placeholder="Total Interest" name="total_interest" validator="required"
+                                       required-error-message="Required"></td>
+                        </tr>
+                    </table>
+                </span>
+            </div>
+            <div class="padding5" style="background-color: aqua;margin: 3% 0% 3% 0%;text-align: center">
+                    <input type="submit" id="submit" name="submit" value="Contact" style="padding: 1% 7% 1% 7%;background-color: black;border: 0;color: #fff;width: 65%;">
+            </div>
+        </form>
+    </div>
+</div>
 </div>
 </body>
 

@@ -2,10 +2,90 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
     -webkit-justify-content: center; /* For Safari */
     -webkit-align-items: center; /* For Safari */
 }
 
-.square-box{
-    padding: 5%;background-color: #1b6d85;color: #fff;margin: 2%;width: 60%;text-align: center
+.container-width{
+    max-width: 800px;
+}
+
+.margin5{
+    margin: 5%;
+}
+
+.margin10{
+    margin: 10%;
+}
+
+.padding5{
+    padding: 5%;
+}
+
+.padding10{
+    padding: 10%;
+}
+
+#personalDiv{
+    background-color: #DADDEC;
+}
+
+#personalHeader{
+    background-color: #8089C0;color: #fff;
+}
+
+.personalDetail{
+    color: #8089C0;background-color: #fff;
+}
+.personalDetail:hover{
+    color: #fff;background-color: #8089C0;cursor: pointer;
+}
+
+#propertyDiv{
+    background-color: #EAE7D6
+}
+
+#propertyHeader{
+    background-color: #CAB95E;color: #fff;
+}
+
+.propertyDetail{
+    color: #CAB95E;background-color: #fff;
+}
+
+.propertyDetail:hover{
+    color: #fff;background-color: #CAB95E;cursor: pointer;
+}
+
+#workDiv{
+    background-color: #DBE1D3
+}
+
+#workHeader{
+    background-color: #85A043;color: #fff;
+}
+
+.workDetail{
+    color: #85A043;background-color: #fff;
+}
+
+.workDetail:hover{
+    color: #fff;background-color: #85A043;cursor: pointer;
+}
+
+#otherDiv{
+    background-color: #E5E1EF
+}
+
+#otherHeader{
+    background-color:#B499C6;color: #fff;
+}
+
+.otherDetail{
+    color: #B499C6;background-color: #fff;
+}
+
+.otherDetail:hover{
+    color: #fff;background-color: #B499C6;cursor: pointer;
 }
