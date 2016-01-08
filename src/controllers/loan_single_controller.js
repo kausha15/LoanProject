@@ -42,8 +42,6 @@ app.controller('loan_single_controller', ['$scope','$window', '$injector', '$sta
             $scope.user.total_payment = round(monthly * payments);
             $scope.user.total_interest = round((monthly * payments) - principal);
         }
-        // Otherwise, the user's input was probably invalid, so don't
-        // display anything.
         else {
             $scope.user.month_payment = 0;
             $scope.user.total_payment = 0;
@@ -59,22 +57,6 @@ app.controller('loan_single_controller', ['$scope','$window', '$injector', '$sta
         }else{
             $scope.message = "Please Provide All Data";
             document.getElementById("response_div").style.color = "red";
-        }
-//        clearForm();
-    }
-
-    function clearForm() {
-        $scope.user={
-            name : '',
-            number : '',
-            email : '',
-            amount : 0,
-            interest : 0,
-            years : 0,
-            month_payment : 0,
-            total_payment : 0,
-            total_interest : 0,
-            title : 'Loan Form'
         }
     }
 

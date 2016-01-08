@@ -11,6 +11,14 @@
     max-width: 800px;
 }
 
+.width40{
+    width: 40%;
+}
+
+.margin2{
+    margin: 2%;
+}
+
 .margin5{
     margin: 5%;
 }
