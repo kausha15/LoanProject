@@ -1,5 +1,7 @@
 app.controller('loan_single_controller', ['$scope','$window', '$injector', '$stateParams' , function($scope, $window, $injector, $stateParams) {
     $scope.type = $stateParams.type;
+    $scope.message = "";
+    $scope.responseShow = 0;
 
     switch ($scope.type){
         case "1":
@@ -50,22 +52,30 @@ app.controller('loan_single_controller', ['$scope','$window', '$injector', '$sta
     };
 
     $scope.submitFrom = function(){
-        alert("ok");
+        $scope.responseShow = 1;
+        if($scope.user.name != '' && $scope.user.number != '' && $scope.user.email != '' && $scope.user.amount != 0 && $scope.user.interest != 0 && $scope.user.years != 0){
+            $scope.message = "Success! We will get back to you shortly!";
+            document.getElementById("response_div").style.color = "green";
+        }else{
+            $scope.message = "Please Provide All Data";
+            document.getElementById("response_div").style.color = "red";
+        }
+//        clearForm();
     }
 
-    $scope.formValidate = function (form, event) {
-
-        var $validationProvider = $injector.get('$validation');
-        $validationProvider.validate(form, event)
-            .success(function () {
-
-                // Actual function here
-                $scope.submitFrom();
-
-            })
-            .error(function () {
-                // console.log('Invalid form provided');
-            });
-    };
+    function clearForm() {
+        $scope.user={
+            name : '',
+            number : '',
+            email : '',
+            amount : 0,
+            interest : 0,
+            years : 0,
+            month_payment : 0,
+            total_payment : 0,
+            total_interest : 0,
+            title : 'Loan Form'
+        }
+    }
 
 }]);

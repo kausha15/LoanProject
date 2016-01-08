@@ -79,7 +79,7 @@
 }
 
 #otherHeader{
-    background-color:#B499C6;color: #fff;
+    background-color:#B499C6;color: #fff;font-size: 17px;
 }
 
 .otherDetail{
@@ -91,15 +91,15 @@
 }
 
 .card{
-    background-color: #e4e4e4;margin: 3% 0% 3% 0%;
+    background-color: #e4e4e4;margin: 3% 0% 3% 0%;border-radius: 5px;
 }
 
 .title-card{
-    background-color: #e4e4e4;width: 100%;padding: 5%;text-align: center
+    background-color: #e4e4e4;width: 100%;padding: 2%;text-align: center;border-radius: 5px;
 }
 
 .button-loan{
-    padding: 1% 7% 1% 7%;
+    padding: 2% 7% 2% 7%;
     background-color: #bdbdbd;
     border: 0;
     color: #000;
@@ -107,9 +107,36 @@
 }
 
 .button-loan:hover{
-    padding: 1% 7% 1% 7%;
+    padding: 2% 7% 2% 7%;
     background-color: #a8a8a8;
     border: 0;
     color: #fff;
     width: 47%;
+}
+
+.formDiv{
+    background-color: #fff;color: #000;padding: 2%;float: right;font-size: small
+}
+
+td {
+    padding: 1.2% !important;
+}
+
+.centerDiv{
+    text-align: center;
+}
+
+.logo{
+    max-height: 50px;
+}
+
+.Header{
+    color: brown;
+    font-weight: 800;
+}
+
+.navDiv{
+    padding: 1%;background-color: #fff;-webkit-box-shadow: 0px 0px 1px 1px ;
+    -moz-box-shadow: 0px 0px 1px 1px ;
+    box-shadow: 0px 0px 1px 1px;
 }

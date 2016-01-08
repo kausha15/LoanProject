@@ -34,30 +34,29 @@
         </div>
     </div>
 </div>
-<div id="form" class="pull-right" style="background-color: #fff;color: #000;padding: 2%;float: right">
-    <form name="loanForm" ng-submit="formValidate(loanForm,$event)">
+<div id="form" class="pull-right formDiv">
+    <form name="loanForm" ng-submit="submitFrom()">
         <div class="title-card">
                 <span>
-                    {{user.title}}
+                    <h4>{{user.title}}</h4>
                 </span>
         </div>
         <div class="padding5 card">
                 <span >
-                    <table>
+                    <table id="form">
                         <tr>
-                            <td>Name : </td>
+                            <td>Name </td>
                             <td><input type="text" ng-model="user.name" id="name" ng-value="user.name"
                                        placeholder="Your Name" name="name" validator="required"
                                        required-error-message="Required"></td>
                         </tr>
                         <tr>
-                            <td>Number : </td>
+                            <td>Number </td>
                             <td><input type="number" ng-model="user.number" id="number" ng-value="user.number"
-                                       placeholder="Contact Number" name="number" validator="required"
-                                       required-error-message="Required"></td>
+                                       placeholder="Contact Number" name="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
                         </tr>
                         <tr>
-                            <td>Email : </td>
+                            <td>Email </td>
                             <td><input type="email" ng-model="user.email" id="email" ng-value="user.email"
                                        placeholder="Email Address" name="email" validator="required"
                                        required-error-message="Required"></td>
@@ -69,22 +68,19 @@
                 <span>
                     <table>
                         <tr>
-                            <td>Amount : </td>
+                            <td>Amount </td>
                             <td><input type="number" ng-model="user.amount" id="amount" ng-value="user.amount"
-                                       placeholder="Loan Amount" name="amount" validator="required"
-                                       required-error-message="Required" ng-change="calculate();"></td>
+                                       placeholder="Loan Amount" name="amount" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-change="calculate();"></td>
                         </tr>
                         <tr>
-                            <td>Interest Rate : </td>
+                            <td>Interest Rate </td>
                             <td><input type="number" ng-model="user.interest" id="interest" ng-value="user.interest"
-                                       placeholder="Interest Rate" name="interest" validator="required"
-                                       required-error-message="Required" ng-change="calculate();"></td>
+                                       placeholder="Interest Rate" name="interest" ng-change="calculate();"></td>
                         </tr>
                         <tr>
-                            <td>Duration : </td>
+                            <td>Duration </td>
                             <td><input type="number" ng-model="user.years" id="years" ng-value="user.years"
-                                       placeholder="Duration in years" name="years" validator="required"
-                                       required-error-message="Required" ng-change="calculate();"></td>
+                                       placeholder="Duration in years" name="years" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-change="calculate();"></td>
                         </tr>
                     </table>
                 </span>
@@ -93,25 +89,22 @@
                 <span>
                     <table>
                         <tr>
-                            <td>Monthly Payment : </td>
-                            <td><input type="number" ng-model="user.month_payment" id="month_payment" ng-value="user.month_payment"
-                                       placeholder="Monthly Payment" name="month_payment" validator="required"
-                                       required-error-message="Required"></td>
+                            <td>Monthly Payment </td>
+                            <td>{{user.month_payment}}</td>
                         </tr>
                         <tr>
-                            <td>Total Payment : </td>
-                            <td><input type="number" ng-model="user.total_payment" id="total_payment" ng-value="user.total_payment"
-                                       placeholder="Total Payment" name="total_payment" validator="required"
-                                       required-error-message="Required"></td>
+                            <td>Total Payment </td>
+                            <td>{{user.total_payment}}</td>
                         </tr>
                         <tr>
-                            <td>Total Interest : </td>
-                            <td><input type="number" ng-model="user.total_interest" id="total_interest" ng-value="user.total_interest"
-                                       placeholder="Total Interest" name="total_interest" validator="required"
-                                       required-error-message="Required"></td>
+                            <td>Total Interest </td>
+                            <td>{{user.total_interest}}</td>
                         </tr>
                     </table>
                 </span>
+        </div>
+        <div class="padding5 card centerDiv" id="response_div" ng-show="responseShow != 0">
+            {{message}}
         </div>
         <div class="padding5 card">
             <input type="submit" id="submit" name="submit" value="Contact" class="button-loan pull-right">
