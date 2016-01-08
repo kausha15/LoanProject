@@ -89,3 +89,27 @@
 .otherDetail:hover{
     color: #fff;background-color: #B499C6;cursor: pointer;
 }
+
+.card{
+    background-color: #e4e4e4;margin: 3% 0% 3% 0%;
+}
+
+.title-card{
+    background-color: #e4e4e4;width: 100%;padding: 5%;text-align: center
+}
+
+.button-loan{
+    padding: 1% 7% 1% 7%;
+    background-color: #bdbdbd;
+    border: 0;
+    color: #000;
+    width: 47%;
+}
+
+.button-loan:hover{
+    padding: 1% 7% 1% 7%;
+    background-color: #a8a8a8;
+    border: 0;
+    color: #fff;
+    width: 47%;
+}
